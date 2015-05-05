@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="play">
+		Play
+	</button>
+
+	<script>
+
+		window.onload = init();
+
+		function init(){
+
+			var playButton = document.getElementById('play');
+			// Easier event listener // playButton.onclick = playTrack
+			playButton.addEventListener('click', function(){
+				createAudio();
+				console.log('Button Clicked');
+			}, false);
+
+		}
+
+		//For Various Browsers
+		function createAudio(){
+
+			var newAudio = new Audio();
+			newAudio.src = 'frigia.mp3';
+			newAudio.play();
+
+		}
+
+	</script>
+</body>
+</html>
