@@ -9,29 +9,58 @@
 		Play
 	</button>
 
+	<button id="pause">
+		Pause
+	</button>
+
 	<script>
 
-		window.onload = init();
+
+		init();
+
+		var createAudio = function(){
+
+			window.newAudio = new Audio();
+			newAudio.src = 'frigia.mp3';
+
+		}();
+
 
 		function init(){
 
 			var playButton = document.getElementById('play');
-			// Easier event listener // playButton.onclick = playTrack
-			playButton.addEventListener('click', function(){
-				createAudio();
-				console.log('Button Clicked');
-			}, false);
+			playButton.addEventListener('click', playAudio, false);
+
+			var pauseButton = document.getElementById('pause');
+			pauseButton.addEventListener('click', pauseAudio, false);
 
 		}
 
-		//For Various Browsers
-		function createAudio(){
+		function playAudio(){
 
-			var newAudio = new Audio();
-			newAudio.src = 'frigia.mp3';
-			newAudio.play();
+			if (newAudio.paused){
+				newAudio.play()
+
+			} else {
+				newAudio.pause()
+			}
+
 
 		}
+
+		function pauseAudio(){
+
+				newAudio.pause();
+
+			}
+
+
+
+
+
+
+
+
 
 	</script>
 </body>
